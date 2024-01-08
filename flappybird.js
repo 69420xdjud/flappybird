@@ -86,4 +86,8 @@ document.addEventListener('keydown', function (event) {
   }
 });
 
+document.addEventListener('click', function (event) {
+  birdVelocity = -JUMP;
+});
+
 gameLoop();
