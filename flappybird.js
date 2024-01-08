@@ -30,7 +30,7 @@ function drawBird() {
 }
 
 function drawPipe(pipeX, pipeHeight) {
-  ctx.fillStyle = 'yellow';
+  ctx.fillStyle = 'beige';
   ctx.fillRect(pipeX, 0, PIPE_WIDTH, pipeHeight);
   ctx.fillRect(pipeX, pipeHeight + PIPE_GAP, PIPE_WIDTH, HEIGHT - pipeHeight - PIPE_GAP);
 }
@@ -76,7 +76,6 @@ function gameLoop() {
 }
 
 function gameOver() {
-  alert('Game Over!');
   location.reload();
 }
 
