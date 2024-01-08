@@ -25,7 +25,7 @@ function drawBird() {
     // img.onload = () => {
     //   ctx.drawImage(img, 0, 0)
     // }
-  ctx.fillStyle = 'pink';
+  ctx.fillStyle = 'cyan';
   ctx.fillRect(WIDTH / 4, birdY, BIRD_WIDTH, BIRD_HEIGHT);
 }
 
