@@ -10,23 +10,28 @@ const PIPE_GAP = 150;
 const GRAVITY = 0.25;
 const JUMP = 5;
 
+const chickenImg = new Image();
+chickenImg.src = 'kip.jpg'
+
+
 let birdY = HEIGHT / 2;
 let birdVelocity = 0;
 
 const pipes = [];
 let pipeTimer = 0;
 
-function drawBird() {
-    // const kip = document.getElementById("kip");
-    // ctx.drawImage(kip, 50, 50);
+let score = 0;
 
-    // const img = new Image()
-    // img.src = "./kip.jpg"
-    // img.onload = () => {
-    //   ctx.drawImage(img, 0, 0)
-    // }
-  ctx.fillStyle = 'cyan';
-  ctx.fillRect(WIDTH / 4, birdY, BIRD_WIDTH, BIRD_HEIGHT);
+function drawScore() {
+  ctx.fillStyle = 'black';
+  ctx.font = '24px Arial';
+  ctx.fillText('Score:' + score, 20, 40);
+}
+
+function drawBird() {
+  ctx.drawImage(chickenImg, WIDTH / 4, birdY, BIRD_WIDTH, BIRD_HEIGHT);
+  // ctx.fillStyle = 'cyan';
+  // ctx.fillRect(WIDTH / 4, birdY, BIRD_WIDTH, BIRD_HEIGHT);
 }
 
 function drawPipe(pipeX, pipeHeight) {
@@ -66,11 +71,13 @@ function gameLoop() {
     if (pipes[i].x + PIPE_WIDTH < 0) {
       pipes.splice(i, 1);
       i--;
+      score++;
     }
   }
 
   drawBird();
-
+  drawScore();
+  
   pipeTimer++;
   requestAnimationFrame(gameLoop);
 }
